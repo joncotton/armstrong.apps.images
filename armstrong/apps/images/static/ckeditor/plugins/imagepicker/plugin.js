@@ -14,7 +14,7 @@
             editor.ui.addButton('ImagePicker', {
                 label: 'Insert Image',
                 icon: this.path + 'toolBarButton.png',
-                command: plugin
+                command: plugin_name
             });
         }
     });
