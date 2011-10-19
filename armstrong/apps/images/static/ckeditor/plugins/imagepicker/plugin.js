@@ -1,7 +1,8 @@
 (function() {
     var plugin = {
         exec: function(editor) {
-            var media = window.showModalDialog("/images/admin/browse/",null,"dialogWidth:750px;dialogHeight:500px;center:yes; resizable: yes; help: no");
+            var media = window.showModalDialog("/admin/images/image/browse/",
+              null, "dialogWidth:750px;dialogHeight:500px;center:yes; resizable: yes; help: no");
             if (media != false && media != null) {
                 editor.insertHtml(media);
             }
