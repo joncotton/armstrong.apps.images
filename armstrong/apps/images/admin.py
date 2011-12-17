@@ -25,10 +25,12 @@ class ImageAdmin(admin.ModelAdmin):
             url(r'^browse/$',
                 self.admin_site.admin_view(BrowseImages.as_view()),
                 name='images_admin_browse'),
-            url(r'^insert/(?P<pk>\d+)$',
+            url(r'^insert/(?P<pk>\d+)/$',
                 self.admin_site.admin_view(
-                    DetailView.as_view(model=Image,
-                        template_name='images/admin_insert.html')
+                    DetailView.as_view(
+                        model=Image,
+                        template_name='images/admin_insert.html'
+                    )
                 ), name='images_admin_insert'),
             url(r'^upload/$',
                 self.admin_site.admin_view(UploadImage.as_view()),

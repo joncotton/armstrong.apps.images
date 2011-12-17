@@ -1,10 +1,8 @@
 import operator
 
-from django.contrib.admin.views.decorators import staff_member_required
-from django.core.urlresolvers import reverse
 from django.db import models
-from django.shortcuts import redirect, get_object_or_404
-from django.template import RequestContext
+from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, CreateView, RedirectView
 
 from sorl.thumbnail.shortcuts import get_thumbnail
