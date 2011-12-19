@@ -1,0 +1,8 @@
+<textarea{{ tag_attrs|safe }}>{{ value|safe }}</textarea>
+<script type="text/javascript">
+(function($) {
+    armstrong.widgets.ckeditor_imagepicker($, {
+        browseURL: "{{ images_browse_url }}",
+    });
+})(django.jQuery)
+</script>
