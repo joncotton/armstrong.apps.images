@@ -14,33 +14,36 @@ armstrong.widgets.ckeditor_imagepicker = function($, options) {
             }
         }
     },
-    plugin_name='imagepicker',
-    button_name='ImagePicker';
+    button_name = 'ImagePicker',
+    static_path = 'plugins/imagepicker/',
+    plugin_name = 'imagepicker' + options.editorID;  // new name for each instance
 
-    CKEDITOR.plugins.add(plugin_name, {
-        init: function(editor) {
-            editor.addCommand(plugin_name, plugin);
-            editor.ui.addButton(button_name, {
-                label: 'Insert Image',
-                icon: this.path + 'toolBarButton.png',
-                command: plugin_name
-            });
-        }
+    /* Register the plugin if it hasn't already been */
+    if (!CKEDITOR.plugins.registered.hasOwnProperty(plugin_name)) {
+        CKEDITOR.plugins.add(plugin_name, {
+            init: function(editor) {
+                editor.addCommand(plugin_name, plugin);
+                editor.ui.addButton(button_name, {
+                    label: 'Insert Image',
+                    icon: static_path + 'toolBarButton.png',
+                    command: plugin_name
+                });
+            }
+        });
+    }
+
+    /* Enable the plugin and toolbar icon for this editor instance */
+    CKEDITOR.replace(options.editorID, {
+        extraPlugins: plugin_name,
+        toolbar: 'ImagePickerToolbar',
+        toolbar_ImagePickerToolbar:
+        [
+            { name: 'clipboard', items : [ 'PasteFromWord' ] },
+            { name: 'styles', items : [ 'Format' ] },
+            { name: 'basicstyles', items : [ 'Bold','Italic','Strike','-','RemoveFormat' ] },
+            { name: 'links', items : [ 'Link','Unlink' ] },
+            { name: 'images', items : [ button_name ] },
+        ],
     });
 
-    /* Enable the plugin and toolbar icon for editor instances */
-    CKEDITOR.replaceAll( function( textarea, config ) {
-        if ( textarea.className === CKEDITOR.replaceClass ) {
-            config.extraPlugins = plugin_name;
-            config.toolbar = 'ImagePickerToolbar';
-            config.toolbar_ImagePickerToolbar =
-            [
-                { name: 'clipboard', items : [ 'PasteFromWord' ] },
-                { name: 'styles', items : [ 'Format' ] },
-                { name: 'basicstyles', items : [ 'Bold','Italic','Strike','-','RemoveFormat' ] },
-                { name: 'links', items : [ 'Link','Unlink' ] },
-                { name: 'images', items : [ button_name ] },
-            ];
-        }
-    });
 }

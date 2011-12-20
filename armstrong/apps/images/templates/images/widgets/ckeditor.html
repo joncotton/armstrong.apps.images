@@ -2,6 +2,7 @@
 <script type="text/javascript">
 (function($) {
     armstrong.widgets.ckeditor_imagepicker($, {
+        editorID: "{{ editor_id }}",
         browseURL: "{{ images_browse_url }}",
     });
 })(django.jQuery)
