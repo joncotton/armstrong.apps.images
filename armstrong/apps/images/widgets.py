@@ -17,8 +17,9 @@ class CKEditorImageWidget(CKEditorWidget):
         if value is None: value = ''
         tag_attrs = self.build_attrs(attrs, name=name)
         final_attrs = {
+            'editor_id': tag_attrs['id'],
+            'images_browse_url': reverse('admin:images_admin_browse'),
             'tag_attrs': flatatt(tag_attrs),
             'value': conditional_escape(force_unicode(value)),
-            'images_browse_url': reverse('admin:images_admin_browse'),
         }
         return render_to_string(self.template, final_attrs)
