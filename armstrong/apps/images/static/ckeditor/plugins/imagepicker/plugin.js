@@ -42,7 +42,7 @@ armstrong.widgets.ckeditor_imagepicker = function($, options) {
             { name: 'styles', items : [ 'Format' ] },
             { name: 'basicstyles', items : [ 'Bold','Italic','Strike','-','RemoveFormat' ] },
             { name: 'links', items : [ 'Link','Unlink' ] },
-            { name: 'images', items : [ button_name ] },
+            { name: 'media', items : [ button_name ] },
         ],
     });
 
