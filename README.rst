@@ -11,24 +11,18 @@ be updated once that has been done.
 
 Installation & Configuration
 ----------------------------
-You can install the latest release of ``armstrong.apps.images`` using `pip`_:
+#. ``pip install armstrong.apps.images``
 
-::
+#. Add ``armstrong.apps.images`` and ``armstrong.apps.content`` to your
+   ``INSTALLED_APPS``
 
-    pip install armstrong.apps.images
+   (AppsContent is required because ``Image`` extends from its
+   ``Content`` model.)
 
-Make sure to add ``armstrong.apps.images`` and ``armstrong.apps.content`` to
-your ``INSTALLED_APPS``.  You can add this however you like.  This works as a
-copy-and-paste solution:
+#. Run either ``syncdb`` or ``migrate`` if you are using `South`_
 
-::
 
-	INSTALLED_APPS += ["armstrong.apps.images", "armstrong.apps.content", ]
-
-``armstrong.apps.content`` is required because ``Image`` extends from the
-``Content`` model inside ``apps.content``.
-
-.. _pip: http://www.pip-installer.org/
+.. _South: http://south.aeracode.org/
 
 
 Contributing
@@ -49,8 +43,8 @@ State of Project
 ----------------
 Armstrong is an open-source news platform that is freely available to any
 organization.  It is the result of a collaboration between the `Texas Tribune`_
-and `Bay Citizen`_, and a grant from the `John S. and James L. Knight
-Foundation`_.
+and `The Center for Investigative Reporting`_ and a grant from the
+`John S. and James L. Knight Foundation`_.
 
 To follow development, be sure to join the `Google Group`_.
 
@@ -58,7 +52,7 @@ To follow development, be sure to join the `Google Group`_.
 probably looking for that.
 
 .. _Texas Tribune: http://www.texastribune.org/
-.. _Bay Citizen: http://www.baycitizen.org/
+.. _The Center for Investigative Reporting: http://cironline.org/
 .. _John S. and James L. Knight Foundation: http://www.knightfoundation.org/
 .. _Google Group: http://groups.google.com/group/armstrongcms
 .. _Armstrong: http://www.armstrongcms.org/
@@ -66,7 +60,7 @@ probably looking for that.
 
 License
 -------
-Copyright 2011-2012 Bay Citizen and Texas Tribune
+Copyright 2011-2013 Texas Tribune and The Center for Investigative Reporting
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
