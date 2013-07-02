@@ -1,6 +1,7 @@
+{% load url from future %}
 {% load thumbnail %}
 <!doctype html>
-<html> 
+<html>
     <head>
     </head>
     <body>
@@ -11,12 +12,12 @@
         <div>
         {% for image in image_list %}
             {% thumbnail image.image "100x100" crop="center" as im %}
-            <a href="{% url admin:images_admin_insert image.id %}" title="{{ image.title }}"><img src="{{ im.url }}" /></a> 
+            <a href="{% url 'admin:images_admin_insert' image.id %}" title="{{ image.title }}"><img src="{{ im.url }}" /></a>
             {% endthumbnail %}
         {% endfor %}
         </div>
         <p>
-            Pages: 
+            Pages:
             {% for page in paginator.page_range %}
                 {% ifequal page_obj.number page %}
                 {{ page }}

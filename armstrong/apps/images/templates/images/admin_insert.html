@@ -1,13 +1,14 @@
+{% load url from future %}
 {% load thumbnail %}
 <!doctype html>
-<html> 
-	<head> 
+<html>
+	<head>
     <script>
     if(!armstrong) var armstrong={};
     armstrong.insert_image = function(){
         var width = document.getElementById('width').value,
             height = document.getElementById('height').value,
-            html = '<img src="{% url images_render_thumbnail image.id '' %}';
+            html = '<img src="{% url 'images_render_thumbnail' image.id '' %}';
 
         if (width) {
             html += width;
@@ -25,8 +26,8 @@
         window.close();
     };
     </script>
-	</head> 
-    <body> 
+	</head>
+    <body>
         <h3>{{ image.title }}</h3>
         {% thumbnail image.image "300" as im %}
         <img src="{{ im.url }}" />
