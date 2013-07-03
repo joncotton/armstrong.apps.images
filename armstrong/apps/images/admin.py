@@ -1,6 +1,10 @@
-from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.views.generic import DetailView
+
+try:
+    from django.conf.urls import patterns, url
+except ImportError:  # Django 1.3
+    from django.conf.urls.defaults import patterns, url
 
 from armstrong.core.arm_content.admin import fieldsets
 

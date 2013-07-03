@@ -1,7 +1,12 @@
-from django.conf import settings
-from django.conf.urls.defaults import *
-from django.conf.urls.static import static
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+
+try:
+    from django.conf.urls import patterns, include, url
+except ImportError:  # Django 1.3
+    from django.conf.urls.defaults import patterns, include, url
+
 
 admin.autodiscover()
 
